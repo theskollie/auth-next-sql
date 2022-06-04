@@ -12,11 +12,19 @@
     "@mantine/core": "^4.2.7",
     "@mantine/hooks": "^4.2.7",
     "@mantine/next": "^4.2.7",
+    "bcrypt": "^5.0.1",
+    "cookie": "^0.5.0",
+    "dotenv": "^16.0.1",
+    "jsonwebtoken": "^8.5.1",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "sqlite": "^4.1.1",
+    "sqlite3": "^5.0.8"
   },
   "devDependencies": {
+    "@types/cookie": "^0.5.1",
+    "@types/jsonwebtoken": "^8.5.8",
     "@types/node": "17.0.38",
     "@types/react": "18.0.10",
     "@types/react-dom": "18.0.5",

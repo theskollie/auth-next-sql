@@ -1,17 +1,30 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import React, { useEffect, useState } from 'react'
+import Unauthorized from '../components/protected/Unauthorized';
+import Authorized from '../components/protected/Authorized';
 
-const Home: NextPage = () => {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Authentication</title>
-      </Head>
-      <h1>Kumalala</h1>
-    </div>
-  )
+const ProtectedPage = () => {
+
+    const [verified, setVerified] = useState(false);
+    useEffect(() => {
+        const verifyJWT = async () => {
+            const request = await fetch('http://localhost:3000/api/protected');
+            const response = await request.json();
+            if (response.success === true) setVerified(true);
+            return;
+        }
+        verifyJWT();
+    }, [])
+
+    return (
+        <div>
+            {
+                verified === true ?
+                    <Authorized /> :
+                    <Unauthorized />
+            }
+        </div>
+    )
 }
 
-export default Home
+export default ProtectedPage
+
