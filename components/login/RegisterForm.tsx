@@ -26,9 +26,9 @@ export default function RegisterForm() {
         <Container size={420} my={40}>
             <Title
                 align="center"
-                sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}
+                sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900, color: theme.colors.red[6] })}
             >
-                Register
+                Register ✍🏻
             </Title>
             <Text color="dimmed" size="sm" align="center" mt={5}>
                 Already have an account?{' '}
@@ -46,7 +46,7 @@ export default function RegisterForm() {
                     ...formDetails,
                     password: event.currentTarget.value
                 })} />
-                <Button fullWidth mt="xl" onClick={async () => {
+                <Button fullWidth mt="xl" color="red" onClick={async () => {
                     await handleRegister(formDetails);
                     router.push('/login');
                 }}>

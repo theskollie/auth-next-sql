@@ -25,6 +25,8 @@ export default async function validateRegister(req: NextApiRequest, res: NextApi
     const { email, password } = req.body;
 
     await bcrypt.hash(password, saltRounds, async function (err: any, hash: any) {
+        if (err) { console.error(err.message) };
+
         sql = `INSERT INTO users (email,password) VALUES ("${email}", "${hash}")`;
 
         await db.run(sql, (err: any) => {
@@ -43,6 +45,7 @@ export default async function validateRegister(req: NextApiRequest, res: NextApi
 
         })
 
+        //Logs Full User List to Server Console After Adding New User
         sql = `SELECT * from users`;
 
         await db.all(sql, (err: any, row: any) => {
@@ -55,16 +58,3 @@ export default async function validateRegister(req: NextApiRequest, res: NextApi
     });
 
 }
-
-    // const sql = `INSERT INTO users (email, password)
-    // VALUES('joe@gmail.com', 'joseph')
-    // `;
-
-    // db.all(sql, [], (err: any, rows: any) => {
-    //     if (err) return console.error(err.message);
-
-    //     let success = false;
-    //     rows.forEach((row: any) => {
-    //         console.log(row);
-    //     })
-    // });

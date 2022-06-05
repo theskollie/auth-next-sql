@@ -14,7 +14,7 @@ const useStyles = createStyles((theme) => ({
         fontSize: 220,
         lineHeight: 1,
         marginBottom: theme.spacing.xl * 1.5,
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
+        color: theme.colorScheme === 'dark' ? theme.colors.red[6] : theme.colors.gray[2],
 
         [theme.fn.smallerThan('sm')]: {
             fontSize: 120,
@@ -45,21 +45,21 @@ export default function ProtectedPage() {
 
     return (
         <Container className={classes.root}>
-            <div className={classes.label}>401</div>
+            <div className={classes.label}>🔐</div>
             <Title className={classes.title}>Protected Page</Title>
-            <Text color="dimmed" size="lg" align="center" className={classes.description}>
-                You are not currently logged in.
+            <Text size="lg" align="center" className={classes.description}>
+                You are not currently logged in. <br />
                 Please login or register below.
             </Text>
             <Group position="center">
                 <Link href="/login">
-                    <Button size="md">
+                    <Button color="red" size="md">
                         Login
                     </Button>
                 </Link>
 
                 <Link href="/register">
-                    <Button size="md">
+                    <Button color="red" size="md">
                         Register
                     </Button>
                 </Link>

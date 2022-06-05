@@ -29,11 +29,11 @@ export default function LoginForm() {
         <Container size={420} my={40}>
             <Title
                 align="center"
-                sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900 })}
+                sx={(theme) => ({ fontFamily: `Greycliff CF, ${theme.fontFamily}`, fontWeight: 900, color: theme.colors.red[6] })}
             >
-                Welcome back!
+                Welcome 👋🏻
             </Title>
-            <Text color="dimmed" size="sm" align="center" mt={5}>
+            <Text size="sm" align="center" mt={5}>
                 Do not have an account yet?{' '}
                 <Anchor<'a'> href="/register" size="sm" >
                     Create account
@@ -55,7 +55,7 @@ export default function LoginForm() {
                         Forgot password?
                     </Anchor>
                 </Group>
-                <Button fullWidth mt="xl" onClick={async () => {
+                <Button fullWidth mt="xl" color="red" onClick={async () => {
                     const response = await handleLogin(formDetails);
                     if (response.success !== false) {
                         router.push('/');

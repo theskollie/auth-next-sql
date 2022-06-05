@@ -10,12 +10,10 @@ export default async function logout(req: NextApiRequest, res: NextApiResponse) 
         })
         return
     }
-    console.log('Logout API Route')
     const { cookies } = req;
     const jwt = cookies.AuthToken;
 
     if (jwt) {
-
         const serialized = serialize("AuthToken", 'null', {
             httpOnly: true,
             secure: process.env.NODE_ENV !== "development",
@@ -37,6 +35,6 @@ export default async function logout(req: NextApiRequest, res: NextApiResponse) 
             status: 200,
             success: false,
             message: 'You were already logged out.'
-        })
+        });
     }
 }

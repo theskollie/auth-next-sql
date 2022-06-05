@@ -19,7 +19,6 @@ export default async function validateLogin(req: NextApiRequest, res: NextApiRes
 
     const db = await new sqlite3.Database('./pages/api/main.db', sqlite3.OPEN_READWRITE, (err: any) => {
         if (err) return console.error(err.message);
-        console.log("connection successful");
     });
 
     await db.run(`CREATE TABLE IF NOT EXISTS users(
@@ -84,7 +83,7 @@ export default async function validateLogin(req: NextApiRequest, res: NextApiRes
     })
 
     await db.close((err: any) => {
-        if (err) return console.log(err.message);
+        if (err) return console.error(err.message);
     })
 
 }

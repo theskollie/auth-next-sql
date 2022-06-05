@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
         fontSize: 220,
         lineHeight: 1,
         marginBottom: theme.spacing.xl * 1.5,
-        color: theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[2],
+        color: theme.colorScheme === 'dark' ? theme.colors.red[6] : theme.colors.gray[2],
 
         [theme.fn.smallerThan('sm')]: {
             fontSize: 120,
@@ -48,13 +48,13 @@ export default function ProtectedPage() {
 
     return (
         <Container className={classes.root}>
-            <div className={classes.label}>200</div>
+            <div className={classes.label}>🎉</div>
             <Title className={classes.title}>Success!</Title>
-            <Text color="dimmed" size="lg" align="center" className={classes.description}>
-                You are logged in successully and can access this protected page.
+            <Text size="lg" align="center" className={classes.description}>
+                You are logged in successully, <br /> and can access this protected page.
             </Text>
             <Group position="center">
-                <Button size="md" onClick={async () => {
+                <Button color="red" size="md" onClick={async () => {
                     await handleLogout();
                     router.reload();
                 }}>

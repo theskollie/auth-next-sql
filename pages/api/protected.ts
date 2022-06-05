@@ -18,7 +18,6 @@ export default function protectedPages(req: NextApiRequest, res: NextApiResponse
 
     try {
         const data = verify(jwt, secret);
-        console.log(`JWT Data: ${data.id}`);
         return res.status(200).json({
             success: true,
             message: 'Successfully Authenticated'
